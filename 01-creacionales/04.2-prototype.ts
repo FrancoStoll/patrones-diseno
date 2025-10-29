@@ -17,23 +17,42 @@ class Pokemon {
   attacks: string[];
 
   constructor(name: string, type: string, level: number, attacks: string[]) {
-    throw new Error('Method not implemented.');
+
+    this.name = name;
+    this.type = type;
+    this.level = level;
+    this.attacks = attacks
+
   }
 
   // Método para clonar el Pokémon
   clone(): Pokemon {
     // Los ataques deben de evitar pasarse por referencia, es decir, no deben de ser el mismo arreglo.
     // Completar: Debe devolver un nuevo Pokémon con los mismos atributos
+    return new Pokemon(this.name, this.type, this.level, structuredClone(this.attacks))
   }
 
   displayInfo(): void {
     console.log(
-      `Nombre: ${this.name}\nTipo: ${this.type}\nNivel: ${
-        this.level
+      `Nombre: ${this.name}\nTipo: ${this.type}\nNivel: ${this.level
       }\nAtaques: ${this.attacks.join(', ')}`
     );
   }
 }
+
+
+function main() {
+
+
+  const basePokemon = new Pokemon('Pito', 'Electric', 10, ['Raw']);
+  const clone1 = basePokemon.clone();
+  clone1.name = 'Pikachu';
+  clone1.level = 12;
+  clone1.attacks.push('Thundershock');
+  
+  basePokemon.displayInfo();
+  clone1.displayInfo();
+ }; main();
 
 // Tarea:
 // 1. Crear un Pokémon base.
