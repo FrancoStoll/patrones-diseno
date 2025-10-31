@@ -6,7 +6,7 @@
  * 
  * * Es útil cuando queremos duplicar el contenido, 
  * * el título y el autor de un documento, por ejemplo o cualquier objeto complejo.
- * 
+ * b
  * https://refactoring.guru/es/design-patterns/prototype
  */
 
